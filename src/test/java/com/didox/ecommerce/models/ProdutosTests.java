@@ -9,40 +9,46 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ProdutosTests {
 
 	@Test
-	void validarPropriedadesProduto() {
+	void validarPropriedades() {
+
 		var produto = new Produto();
-		produto.setCodigo("mte333");
-		produto.setNome("Peça para capa do carro");
-		produto.setDescricao("Esta peça é fundamental para a capa");
-		produto.setQuantidade(100);
+		produto.setNome("Mouse colorido");
+		produto.setDescricao("Um produto feito no teste");
 		produto.setValor(5.80);
-		
-		assertEquals("MTE333", produto.getCodigo());
-		assertEquals("Peça para capa do carro", produto.getNome());
-		assertEquals("Esta peça é fundamental para a capa", produto.getDescricao());
-		assertEquals(100, produto.getQuantidade());
+		produto.setQuantidade(100);
+
+		assertEquals("Mouse colorido", produto.getNome());
+		assertEquals("Um produto feito no teste", produto.getDescricao());
 		assertEquals(5.80, produto.getValor());
+		assertEquals(100, produto.getQuantidade());
 	}
 
 	@Test
-	void aoSetarNomeGeraCodigoCasoCodigoVazio() {
+	void geraCodigoAoSetarNome(){
 		var produto = new Produto();
-		produto.setNome("Peça para capa do carro");
-		assertEquals("PEÇ-23", produto.getCodigo());
+		produto.setNome("Bicicleta");
+		assertEquals("BIC-9", produto.getCodigo());
 	}
 
 	@Test
-	void aoSetarNomeGeraCodigoCasoCodigoVazio2() {
+	void geraCodigoAoSetarNome2(){
 		var produto = new Produto();
-		produto.setNome("Roda do carro");
-		assertEquals("ROD-13", produto.getCodigo());
+		produto.setNome("Cachorro vermelho");
+		assertEquals("CAC-17", produto.getCodigo());
 	}
 
 	@Test
-	void aoSetarNomeNaoGeraCodigoCasoCodigoPreenchido() {
+	void geraCodigoAoSetarNome3(){
 		var produto = new Produto();
-		produto.setCodigo("TTT-001");
-		produto.setNome("Peça para capa do carro");
-		assertEquals("TTT-001", produto.getCodigo());
+		produto.setNome("Banana Nanica");
+		assertEquals("BAN-13", produto.getCodigo());
+	}
+
+	@Test
+	void casoDigiteCodigoDepoisAltereNomeOCodigoFicaOMesmo(){
+		var produto = new Produto();
+		produto.setCodigo("TTT-21");
+		produto.setNome("Banana Nanica");
+		assertEquals("TTT-21", produto.getCodigo());
 	}
 }

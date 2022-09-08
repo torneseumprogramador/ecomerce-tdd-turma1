@@ -12,7 +12,7 @@
 	<artifactId>ecommerce</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ecommerce</name>
-	<description>Um e-commerce para fazer em java com TDD</description>
+	<description>Um ecommerce criado com TDD</description>
 	<properties>
 		<java.version>18</java.version>
 	</properties>
